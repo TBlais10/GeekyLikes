@@ -1,12 +1,17 @@
 package com.geekylikes.app.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/api/test")
 public class TestController {
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     @GetMapping("/all")
     public String allAccess() {
@@ -30,4 +35,7 @@ public class TestController {
     public String adminAccess() {
         return "admin content";
     }
+
+    @GetMapping("/news/{q}")
+    public Re
 }
